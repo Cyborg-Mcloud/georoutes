@@ -53,13 +53,15 @@ function renderFavourites() {
 			}
 			console.log(tableName);
 
-			db.executeSql('SELECT *, ? as `type` FROM ' + tableName + ' WHERE id = ?', [favouriteItem['type'], favouriteItem['record_id']], function (resultSet) {
+			db.transaction(function (txn) {
+					txn.executeSql('SELECT *, ? as `type` FROM ' + tableName + ' WHERE id = ?', [favouriteItem['type'], favouriteItem['record_id']], function (resultSet) {
 				console.log(resultSet.rows.item(0));
 				data.push(resultSet.rows.item(0));
 				currentX++;
 				if (currentX == maxX) {
 			 		handleHistoryItems(data);
 				}
+					});
 			});
 		}
 	});

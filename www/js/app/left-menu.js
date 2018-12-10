@@ -14,13 +14,15 @@ function updateLeftCategories() {
 	//
 	// 	}
 	// });
-	db.executeSql('SELECT * FROM object_categories', [], function (resultSet) {
+	db.transaction(function (txn) {
+					txn.executeSql('SELECT * FROM object_categories', [], function (resultSet) {
 		var data = new Array();
 		for(var x = 0; x < resultSet.rows.length; x++) {
 			data.push(resultSet.rows.item(x));
 			// console.log(resultSet.rows.item(x));
 		}
 		handleLeftCategories(data);
+					});
 	});
 }
 function handleLeftCategories(data){
