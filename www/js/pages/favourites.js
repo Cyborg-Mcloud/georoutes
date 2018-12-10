@@ -36,7 +36,8 @@ function renderFavourites() {
 	clearContent();
 	setTitle( string('favourites_title') );
 
-	userDB.executeSql('SELECT record_id, type FROM favourites ORDER BY id DESC', [], function (tx,resultSet) {
+	userDB.transaction(function (txn) {
+					txn.executeSql('SELECT record_id, type FROM favourites ORDER BY id DESC', [], function (tx,resultSet) {
 		var data = new Array();
 		var favouriteItem;
 		var maxX = resultSet.rows.length;
@@ -64,6 +65,7 @@ function renderFavourites() {
 					});
 			});
 		}
+		});
 	});
 }
 
