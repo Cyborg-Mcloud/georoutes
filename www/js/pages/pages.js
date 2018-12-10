@@ -10,8 +10,10 @@ function bodyLoad() {
 	console.log('vqeni');
 	console.log(contentDiv);
 	// renderRegions();
+	console.log("connecting");
 	connectDB();
 	connectUserDB();
+	console.log("connected");
 	if (localStorage.getItem("launched") != '1') {
 		createDB();
 		createUserDB();
