@@ -98,7 +98,7 @@ function renderRegions() {
 	logOperation('region');
 	clearContent();
 	setTitle(string('regions_title'));
-
+	console.log("rendering regions: "+string('regions_title'));
 	// $.ajax({
 	// 	url: siteURL + "/api/regions.php",
 	// 	type: 'GET',
@@ -116,6 +116,7 @@ function renderRegions() {
 	var data = new Array();
 	db.transaction(function (txn) {
 		txn.executeSql('SELECT * FROM regions', [], function (tx,resultSet) {
+		console.log("regionebi movqache");
 		for(var x = 0; x < resultSet.rows.length; x++) {
 			data.push(resultSet.rows.item(x));
 			// console.log(resultSet.rows.item(x));
