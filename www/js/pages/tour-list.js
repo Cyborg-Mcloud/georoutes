@@ -91,9 +91,10 @@ function renderTourList(id, name) {
 		for(var x = 0; x < resultSet.rows.length; x++) {
 			data.push(resultSet.rows.item(x));
 		}
-		console.log('aq  kivaasdfasdr');
+		console.log('aq  tour-new');
+		console.log(data);
 		handleTours(data, 'tour-new');
-	}, function(error) {console.log('pizzzdec' + error);});
+		});
 	});
 	db.transaction(function (txn) {
 					txn.executeSql('SELECT * FROM tours WHERE id IN (SELECT tour_id FROM tour_regions WHERE region_id = ?) AND is_recommended = 1', [id], function (tx,resultSet) {
@@ -101,6 +102,8 @@ function renderTourList(id, name) {
 		for(var x = 0; x < resultSet.rows.length; x++) {
 			data.push(resultSet.rows.item(x));
 		}
+		console.log('aq  tour-recomend');
+		console.log(data);
 		handleTours(data, 'tour-recommended');
 		});
 	});
@@ -110,6 +113,9 @@ function renderTourList(id, name) {
 		for(var x = 0; x < resultSet.rows.length; x++) {
 			data.push(resultSet.rows.item(x));
 		}
+			console.log('aq  tour-pop');
+		console.log(data);
+
 		handleTours(data, 'tour-popular');
 					});
 	});
