@@ -24,7 +24,7 @@ function createTourItemLayout(data) {
 			'<div class="inner-padding" id="rating-div"></div>';
 	renderReviews('tour', tour.id, 'rating-div');
 	// createMap('map-map', false);
-
+coonsole.log(tour);
 
 	routeTemp = JSON.parse(tour.tour_driving_map_data);
 	console.log('gzaaaaaaaaaaaaaaaaaaaaa');
@@ -310,8 +310,9 @@ function renderTourItem(id) {
 			data.objects.push(resultSet.rows.item(x));
 		}
 		console.log('obieqti morchaaa');
-		createTourItemLayout(data);
 		console.log(data);
+		createTourItemLayout(data);
+
 		});
 	});
 }
