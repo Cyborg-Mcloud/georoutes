@@ -114,12 +114,14 @@ function renderRegions() {
 	// handleRegions(loadRegions());
 	//handleRegions(getData('regions'));
 	var data = new Array();
-	db.executeSql('SELECT * FROM regions', [], function (resultSet) {
+	db.transaction(function (txn) {
+		txn.executeSql('SELECT * FROM regions', [], function (resultSet) {
 		for(var x = 0; x < resultSet.rows.length; x++) {
 			data.push(resultSet.rows.item(x));
 			// console.log(resultSet.rows.item(x));
 		}
 		handleRegions(data);
+		});
 	});
 }
 
