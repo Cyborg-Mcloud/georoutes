@@ -108,8 +108,10 @@ function callLastOperation() {
 }
 
 function showHome() {
-	if (getRegion()) renderTourList(getRegion(), getRegionName());
-	else renderRegions();
+//	if (getRegion()) renderTourList(getRegion(), getRegionName());
+//	else renderRegions();
+
+	 renderRegions();
 }
 // menu
 function renderRightMenuList() {
