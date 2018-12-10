@@ -37,7 +37,7 @@ function renderHistory() {
 	setTitle( string('history_title') );
 
 	userDB.transaction(function (txn) {
-					txn.executeSql('SELECT record_id, type FROM history ORDER BY id DESC', [], function (resultSet) {
+					txn.executeSql('SELECT record_id, type FROM history ORDER BY id DESC', [], function (tx,resultSet) {
 		var data = new Array();
 		var historyItem;
 		var maxX = resultSet.rows.length;
@@ -55,7 +55,7 @@ function renderHistory() {
 			console.log(tableName);
 
 			db.transaction(function (txn) {
-					txn.executeSql('SELECT *, ? as `type` FROM ' + tableName + ' WHERE id = ?', [historyItem['type'], historyItem['record_id']], function (resultSet) {
+					txn.executeSql('SELECT *, ? as `type` FROM ' + tableName + ' WHERE id = ?', [historyItem['type'], historyItem['record_id']], function (tx,resultSet) {
 				console.log(resultSet.rows.item(0));
 				data.push(resultSet.rows.item(0));
 				currentX++;

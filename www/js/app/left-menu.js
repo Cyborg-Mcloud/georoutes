@@ -15,7 +15,7 @@ function updateLeftCategories() {
 	// 	}
 	// });
 	db.transaction(function (txn) {
-					txn.executeSql('SELECT * FROM object_categories', [], function (resultSet) {
+					txn.executeSql('SELECT * FROM object_categories', [], function (tx,resultSet) {
 		var data = new Array();
 		for(var x = 0; x < resultSet.rows.length; x++) {
 			data.push(resultSet.rows.item(x));

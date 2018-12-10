@@ -1,7 +1,7 @@
 function addToFavourites(id, type) {
 	console.log('Favourites LOG DAIWYO' + id + ' t: ' + type);
 	userDB.transaction(function (txn) {
-		txn.executeSql('SELECT count(*) as total FROM favourites WHERE type = ? AND record_id = ?', [type, id], function (resultSet) {
+		txn.executeSql('SELECT count(*) as total FROM favourites WHERE type = ? AND record_id = ?', [type, id], function (tx,resultSet) {
 		console.log('FAV LLOG GAGRDZELDA');
 		var favouriteCount = resultSet.rows.item(0);
 		console.log(favouriteCount);
@@ -9,7 +9,7 @@ function addToFavourites(id, type) {
 			if (favouriteCount['total'] == 0) {
 				console.log('არაა ფავორიტებში');
 				userDB.transaction(function (txn) {
-					txn.executeSql('INSERT INTO favourites(`record_id`, `type`) VALUES (?, ?)', [id, type], function (resultSet) {
+					txn.executeSql('INSERT INTO favourites(`record_id`, `type`) VALUES (?, ?)', [id, type], function (tx,resultSet) {
 					console.log('ფავორიტებში დაემატა');
 					});
 				});
@@ -18,7 +18,7 @@ function addToFavourites(id, type) {
 			}
 		} else {
 			userDB.transaction(function (txn) {
-					txn.executeSql('INSERT INTO favourites(`record_id`, `type`) VALUES (?, ?)', [id, type], function (resultSet) {
+					txn.executeSql('INSERT INTO favourites(`record_id`, `type`) VALUES (?, ?)', [id, type], function (tx,resultSet) {
 				console.log('დაემატა ფავორიტებში');
 					});
 			});
@@ -29,7 +29,7 @@ function addToFavourites(id, type) {
 
 function checkFavourite(id, type, success) {
 	userDB.transaction(function (txn) {
-					txn.executeSql('SELECT count(*) as total FROM favourites WHERE type = ? AND record_id = ?', [type, id], function (resultSet) {
+					txn.executeSql('SELECT count(*) as total FROM favourites WHERE type = ? AND record_id = ?', [type, id], function (tx,resultSet) {
 		var favouriteCount = resultSet.rows.item(0);
 
 		if (favouriteCount) {
@@ -50,7 +50,7 @@ function checkFavourite(id, type, success) {
 function removeFromFavourites(id, type) {
 	console.log('Favourites LOG DAIWYO' + id + ' t: ' + type);
 	userDB.transaction(function (txn) {
-					txn.executeSql('DELETE FROM favourites WHERE type = ? AND record_id = ?', [type, id], function (resultSet) {
+					txn.executeSql('DELETE FROM favourites WHERE type = ? AND record_id = ?', [type, id], function (tx,resultSet) {
 		console.log('ფავორიტებიდან ამოიშალა');
 		console.log('resultSet.rowsAffected: ' + resultSet.rowsAffected);
 					});

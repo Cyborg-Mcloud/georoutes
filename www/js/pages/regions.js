@@ -115,7 +115,7 @@ function renderRegions() {
 	//handleRegions(getData('regions'));
 	var data = new Array();
 	db.transaction(function (txn) {
-		txn.executeSql('SELECT * FROM regions', [], function (resultSet) {
+		txn.executeSql('SELECT * FROM regions', [], function (tx,resultSet) {
 		for(var x = 0; x < resultSet.rows.length; x++) {
 			data.push(resultSet.rows.item(x));
 			// console.log(resultSet.rows.item(x));

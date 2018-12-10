@@ -256,21 +256,21 @@ function showAjaxError() {
 
 function logView(id, type) {
 	console.log('LOG DAIWYO' + id + ' t: ' + type);
-	userDB.executeSql('SELECT `record_id` FROM history WHERE type = ? ORDER BY id DESC LIMIT 1;', [type], function (resultSet) {
+	userDB.executeSql('SELECT `record_id` FROM history WHERE type = ? ORDER BY id DESC LIMIT 1;', [type], function (tx,resultSet) {
 		console.log('LOG GAGRDZELDA');
 		var lastHistoryItem = resultSet.rows.item(0);
 		console.log(lastHistoryItem);
 		if (lastHistoryItem) {
 			if (lastHistoryItem['record_id'] != id) {
 				console.log('არაა ბოლო');
-				userDB.executeSql('INSERT INTO history(`record_id`, `type`) VALUES (?, ?)', [id, type], function (resultSet) {
+				userDB.executeSql('INSERT INTO history(`record_id`, `type`) VALUES (?, ?)', [id, type], function (tx,resultSet) {
 					console.log('history record added');
 				});
 			} else {
 				console.log('ბოლოა');
 			}
 		} else {
-			userDB.executeSql('INSERT INTO history(`record_id`, `type`) VALUES (?, ?)', [id, type], function (resultSet) {
+			userDB.executeSql('INSERT INTO history(`record_id`, `type`) VALUES (?, ?)', [id, type], function (tx,resultSet) {
 				console.log('history record added');
 			});
 		}

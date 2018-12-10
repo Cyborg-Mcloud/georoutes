@@ -36,7 +36,7 @@ function renderFavourites() {
 	clearContent();
 	setTitle( string('favourites_title') );
 
-	userDB.executeSql('SELECT record_id, type FROM favourites ORDER BY id DESC', [], function (resultSet) {
+	userDB.executeSql('SELECT record_id, type FROM favourites ORDER BY id DESC', [], function (tx,resultSet) {
 		var data = new Array();
 		var favouriteItem;
 		var maxX = resultSet.rows.length;
@@ -54,7 +54,7 @@ function renderFavourites() {
 			console.log(tableName);
 
 			db.transaction(function (txn) {
-					txn.executeSql('SELECT *, ? as `type` FROM ' + tableName + ' WHERE id = ?', [favouriteItem['type'], favouriteItem['record_id']], function (resultSet) {
+					txn.executeSql('SELECT *, ? as `type` FROM ' + tableName + ' WHERE id = ?', [favouriteItem['type'], favouriteItem['record_id']], function (tx,resultSet) {
 				console.log(resultSet.rows.item(0));
 				data.push(resultSet.rows.item(0));
 				currentX++;
