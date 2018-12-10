@@ -13,6 +13,8 @@
 	
 <allow-intent href="*" />
 <allow-navigation href="*" />
+
+    <icon platform="android" src="resources/logo.png" />
     <plugin name="cordova-plugin-file" source="npm"/>
     <plugin name="cordova-plugin-device" source="npm" />
     <plugin name="cordova-plugin-file-transfer" source="npm" />
@@ -36,7 +38,7 @@
     <plugin name="cordova-plugin-x-socialsharing" source="npm">
         <variable name="ANDROID_SUPPORT_V4_VERSION" value="24.1.1+" />
     </plugin>
-    <icon platform="android" src="resources/logo.png" />
+
     <engine name="browser" source="npm" />
     <engine name="android" source="npm" />
 </widget>
