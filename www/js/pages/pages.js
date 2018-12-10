@@ -13,6 +13,7 @@ function bodyLoad() {
 	console.log("connecting");
 	connectDB();
 	connectUserDB();
+		localStorage.setItem("launched", '0');
 	console.log("connected "+localStorage.getItem("launched"));
 	if (localStorage.getItem("launched") != '1') 
 		{
