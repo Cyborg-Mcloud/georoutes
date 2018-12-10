@@ -1,0 +1,115 @@
+$headerHeight: 46px;
+$footerHeight: 44px;
+$kutkhisZoma: 15px;
+
+.header-navigation {
+  position: fixed;
+  top: 0px;
+  height: $headerHeight;
+  width: 100%;
+  padding: 10px 0px;
+  z-index: 999;
+  //background-color: $mtavari;
+
+
+  %navbutton {
+	background-color: $mtavariMkrtali;
+	width: 50px;
+	height: $headerHeight;
+	text-align: center;
+	color: $fontLight;
+	font-size: 1.2em;
+  }
+
+  .search-button {
+	@extend %navbutton;
+	border-radius: 0px 25px 25px 0px;
+	float: left;
+	.icon {
+	  margin-right: 4px;
+	}
+  }
+
+  .menu-button {
+	@extend %navbutton;
+	border-radius: 25px 0px 0px 25px;
+	float: right;
+	.icon {
+	  margin-left: 4px;
+	}
+  }
+
+  .icon {
+	line-height: $headerHeight;
+	//margin-left: 10px;
+	//margin-right: 10px;
+  }
+
+}
+.header-title {
+  display: none;
+  text-align: center;
+  color: $mtavari;
+  font-size: 1.2em;
+  line-height: $headerHeight;
+  padding: 10px 0px;
+}
+
+.footer-navigation {
+  position: fixed;
+  bottom: 0px;
+  height: $footerHeight;
+  width: 100%;
+  line-height: $footerHeight;
+  background-color: $mtavariMkrtali;
+  color: $fontLight;
+  z-index: 1010;
+  .inner {
+	width: 90%;
+	margin: 0px auto;
+  }
+  a {
+	color: $fontLight;
+	transition: color 0.3s;
+	text-decoration: none;
+  }
+  a:hover, a active, a:focus {
+	color: $fontLightHover;
+  }
+  a i {
+	font-size: 1.3em;
+	line-height: 2.2em;
+  }
+  %corner {
+	position: absolute;
+	bottom: 100%;
+	width: $kutkhisZoma;
+	height: $kutkhisZoma;
+	line-height: $kutkhisZoma;
+	img {
+	  width: $kutkhisZoma;
+	  height: $kutkhisZoma;
+	  opacity: 0.8;
+	}
+  }
+  .corner-left {
+	@extend %corner;
+	left: 0px;
+  }
+  .corner-right {
+	@extend %corner;
+	right: 0px;
+  }
+}
+
+
+%padding-content {
+  width: 90%;
+  margin-left: 5%;
+}
+.registration-form {
+  @extend %padding-content;
+}
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}

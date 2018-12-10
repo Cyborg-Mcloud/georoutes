@@ -1,0 +1,89 @@
+
+.row:after, .float-right:after {
+  clear: both;
+  content: " ";
+  display: block;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
+.col {
+  padding: 0px;
+  margin: 0px;
+  display: inline-block;
+  float: left;
+}
+
+@for $i from 1 through 12 {
+  .col-#{$i} { @extend .col; width: 100% * $i / 12; }
+}
+
+@for $i from 1 through 4 {
+  .mb-#{$i} { margin-bottom: $i * 5px; }
+  .mt-#{$i} { margin-top: $i * 5px; }
+  .ml-#{$i} { margin-left: $i * 5px; }
+  .mr-#{$i} { margin-right: $i * 5px; }
+}
+@for $i from 1 through 4 {
+  .pb-#{$i} { padding-bottom: $i * 5px; }
+  .pt-#{$i} { padding-top: $i * 5px; }
+}
+
+.text-center {
+  text-align: center;
+}
+.center {
+  margin: 0 auto;
+}
+.clear {
+  clear: both;
+}
+.width-100 {
+  width: 100%;
+}
+%button {
+  display: inline-block;
+  text-decoration: none;
+  padding: 5px 10px;
+  font-size: 1.1em;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+.button-primary {
+  @extend %button;
+  background-color: $mtavari;
+  color: $mtavariMuqi;
+}
+
+.button-secondary {
+  @extend %button;
+  background-color: transparent;
+  color: $mtavari;
+  border: 1px solid $mtavari;
+}
+
+.input-primary {
+  border: none;
+  border-bottom: 1px solid $mkrtaliNacrisferi;
+  padding: 8px 16px;
+  font-family: inherit;
+  background: none;
+  box-sizing: border-box;
+}
+.input-primary:focus {
+  border-bottom: 1px solid $mtavariMkrtali;
+  outline: none;
+}
+
+.text-light {
+  color: $fontMkrtali;
+}

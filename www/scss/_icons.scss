@@ -1,0 +1,58 @@
+.my-icon {
+  display: inline-block;
+  position: relative;
+  top: 1px;
+  height: 1em;
+  width: 1em;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url('icons/heart.png');
+  transition: filter 0.2s;
+}
+.my-icons:hover, icons:focus {
+  filter: brightness(0.7);
+}
+.my-icon-black {
+  filter: brightness(0);
+}
+.my-icon-blue-heart {
+  background-image: url('icons/blue-heart.png');
+}
+.my-icon-blue-heart-full {
+  background-image: url('icons/blue-heart-full.png');
+}
+.my-icon-share {
+  background-image: url('icons/share.png');
+}
+.my-icon-route {
+  background-image: url('icons/route.png');
+}
+.my-icon-marker {
+  background-image: url('icons/marker.png');
+}
+.my-icon-star-full {
+  background-image: url('icons/star-full.png');
+}
+.my-icon-star-empty {
+  background-image: url('icons/star-empty.png');
+}
+.my-icon-star-empty-white-bold {
+  background-image: url('icons/star-empty.png');
+}
+//.icon-1x {
+//  height: 1rem;
+//  width: 1rem;
+//}
+.icon-0-8x {
+  height: 0.8rem;
+  width: 0.8rem;
+}
+.icon-1-5x {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+.icon-2x {
+    height: 2rem;
+    width: 2rem;
+}

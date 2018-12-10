@@ -1,0 +1,218 @@
+$menusSigane: 245px;
+$iconisSigane: 50px;
+$menusFonisFeri: rgba(40, 40, 40, 0.80);
+
+
+.slide-menu {
+  display: block;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 0px;
+  z-index: 999;
+}
+
+.black-bg {
+  display: none;
+  opacity: 0;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.6);
+  z-index: 1020;
+}
+
+%menu-side {
+  position: absolute;
+  top: 30px;
+  background-color: $menusFonisFeri;
+  width: $menusSigane;
+  height: auto;
+  color: $fontLight;
+}
+
+.menu-right {
+  @extend %menu-side;
+  right: -$menusSigane;
+  border-radius: 40px 0px 0px 40px;
+
+
+  .menu-content {
+    padding: 30px 18px 40px 30px;
+  }
+  .menu-header {
+    width: $menusSigane + $iconisSigane;
+    left: -$iconisSigane;
+    border-radius: 40px 0px 0px 40px;
+  }
+  .menu-icon {
+    float: left;
+  }
+
+  .menu-profile {
+     padding: 20px 0px;
+
+    .menu-user-info {
+      padding-top: 10px;
+
+      .menu-user-username {
+        font-size: 1.1em;
+        font-weight: bold;
+      }
+      .menu-user-location {
+        font-size: 0.9em;
+      }
+
+    }
+  }
+
+  .menu-button-style {
+    display: block;
+    box-sizing: border-box; // compatibility?
+    width: 100%;
+    padding: 10px;
+    background-color: #FFFFFF;
+    color: $mtavariMuqi;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 1.05em;
+    margin-bottom: 5px;
+    pointer: cursor;
+
+    .icon {
+      position: relative;
+      color: $mtavari;
+      line-height: 1em;
+      font-size: 1.3em;
+      top: 2px;
+      margin: 0px 3px;
+    }
+  }
+}
+.menu-left {
+
+  @extend %menu-side;
+  left: -$menusSigane;
+  border-radius: 0px 40px 40px 0px;
+
+  .menu-content {
+    padding: 30px 30px 5px 8px;
+  }
+  .menu-header {
+    width: $menusSigane + $iconisSigane;
+    right: -$iconisSigane;
+    border-radius: 0px 40px 40px 0px;
+  }
+  .menu-icon {
+    float: right;
+  }
+  .menu-search {
+    display: inline-block;
+    width: auto;
+
+    .menu-input {
+      display: inline-block;
+      background-color: #FFFFFF;
+      border-radius: 5px 40px 40px 5px;
+      padding: 5px 20px 5px 10px;
+      height: 20px;
+      //width: $menusSigane - $iconisSigane - 37px;
+      width: $menusSigane - 37px;
+      margin-left: 7px;
+      margin-top: 7px;
+      border: none;
+    }
+  }
+
+  .menu-left-button {
+    background-color: #141414;
+    border-radius: 10px;
+    border: none;
+    color: $fontLight;
+    text-decoration: none;
+    font-size: 0.8em;
+    padding: 4px 6px;
+  }
+
+  %menu-left-sub {
+    position: absolute;
+    display: none;
+    top: 105%;
+    //max-height: 300px;
+    width: $menusSigane - 50px;
+    background-color: $menusFonisFeri;
+    left: 8px;
+    border-radius: 10px;
+    padding: 20px 10px 10px 10px;
+  }
+  .menu-left-sub-categories {
+    @extend %menu-left-sub;
+
+    .sub-category-item {
+      padding: 12px 0px 8px 0px;
+      color: $fontLight;
+      display: block;
+      border-radius: 6px;
+      transition: background-color 0.2s linear;
+
+      .sub-menu-icon {
+        text-align: center;
+        color: $mtavari;
+
+        img {
+          position: relative;
+          height: 20px;
+          top: -2px;
+        }
+      }
+    }
+    .sub-category-item.active {
+      background-color: #f27123;
+    }
+  }
+  .menu-left-sub-newest {
+    @extend %menu-left-sub;
+
+    .sub-category-item {
+      padding: 10px 0px;
+      color: $fontLight;
+      display: block;
+
+      .sub-menu-icon {
+        text-align: center;
+      }
+      .sub-menu-title {
+        font-size: 0.8em;
+      }
+    }
+  }
+}
+
+.menu-header {
+  position: absolute;
+  top: -20px;
+  background-color: $mtavariMkrtali;
+  height: $headerHeight;
+  color: $fontLight;
+  font-size: 1.2em;
+  width: 100%;
+}
+
+.menu-icon {
+  //background-color: $mtavariMkrtali;
+  width: $iconisSigane;
+  height: $headerHeight;
+  text-align: center;
+  color: $fontLight;
+  font-size: 1.2em;
+  line-height: $headerHeight;
+}
+
+.menu-languages {
+  * {
+    vertical-align: middle;
+  }
+}

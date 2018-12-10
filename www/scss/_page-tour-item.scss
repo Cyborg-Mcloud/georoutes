@@ -1,0 +1,40 @@
+.tour-item {
+  @extend %detail-tour-object-outer;
+
+  .tour-item-image-div {
+	@extend %detail-tour-object-image-div;
+
+	.tour-item-image {
+	  @extend %detail-tour-object-image;
+	  &:after {
+		@extend %item-photo-after;
+	  }
+	}
+	.tour-item-bottom {
+	  @extend %detail-tour-object-bottom-div;
+
+	  .tour-item-title {
+		@extend %detail-tour-object-title;
+	  }
+	  .tour-item-rating {
+		@extend %detail-tour-object-rating;
+		.tour-item-star-quantity {
+		  @extend %detail-tour-star-quantity;
+		}
+	  }
+	}
+  }
+
+  .tour-item-padding {
+	@extend %detail-tour-object-padding;
+  }
+  .tour-item-description {
+	@extend %detail-tour-object-description;
+  }
+  .tour-item-first-row {
+	@extend %detail-tour-object-first-row;
+  }
+  .tour-item-hr {
+	@extend %detail-tour-object-hr;
+  }
+}

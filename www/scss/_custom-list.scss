@@ -1,0 +1,22 @@
+.custom-list {
+  position: relative;
+  width: 100%;
+  padding-top: 10px;
+
+  .custom-list-item {
+	@extend %item;
+
+	.custom-list-item-photo {
+	  @extend %item-photo;
+	  &:after {
+		@extend %item-photo-after;
+	  }
+	}
+	.custom-list-item-text {
+	  @extend %item-text;
+	}
+	.custom-list-item-bottom {
+	  @extend %item-bottom;
+	}
+  }
+}

@@ -1,0 +1,70 @@
+.rating-info {
+	padding: 18px 0px 10px 0px;
+  .rating-info-top {
+
+  }
+  .rating-info-bars {
+	margin-top: 10px;
+	color: $fontMkrtali;
+	font-size: 0.8em;
+
+	.rating-info-bar-row {
+	  .rating-info-bar {
+		display: block;
+		position: relative;
+		width: 95%;
+		height: 9px;
+		border-radius: 6px;
+		background-color:#b9b9b9;
+		margin-top: 3px;
+
+		.rating-info-bar-inner {
+		  display: block;
+		  position: absolute;
+		  top: 0px;
+		  left: 0px;
+		  width: 55%;
+		  height: 9px;
+		  border-radius: 6px;
+		  background-color: #f33433;
+		}
+	  }
+	}
+  }
+  .rating-info-comments {
+	padding-top: 15px;
+	.rating-info-comment {
+
+	  margin: 9px 0px;
+
+	  .rating-info-comment-user {
+		.rating-info-comment-user-avatar {
+
+		}
+		.rating-info-comment-user-name {
+		  font-family: "dejavu caps";
+		  font-size: 0.8em;
+		  color: $fontMuqi;
+		}
+	  }
+
+	  .rating-info-comment-content {
+		.rating-info-comment-content-top {
+		  padding-bottom: 8px;
+		  .rating-info-comment-content-date {
+			font-size: 0.65em;
+		  }
+
+		}
+		.rating-info-comment-content-comment {
+		  font-size: 0.8em;
+		  color: $fontMkrtali;
+		}
+	  }
+	}
+  }
+}
+
+.star-rating-inline {
+  display: inline-block;
+}

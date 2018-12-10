@@ -1,0 +1,49 @@
+
+
+.tour-list {
+  width: 100%;
+  height: auto;
+  display: none;
+
+  .tour-list-item {
+	@extend %item;
+
+	.tour-list-item-photo {
+	  @extend %item-photo;
+	  &:after {
+		@extend %item-photo-after;
+	  }
+	}
+	.tour-list-item-text {
+	  @extend %item-text;
+	}
+  }
+}
+.tour-list.active {
+  display: block;
+}
+
+.tour-list-categories {
+  width: 100%;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  color: $mtavari;
+  font-size: 0.9em;
+
+  .tour-list-category {
+	text-align: center;
+	.tour-list-category-dot {
+	  display: inline-block;
+	  position: relative;
+	  margin: 0 auto;
+	  height: 8px;
+	  width: 8px;
+	  border: 1px solid $mtavari;
+	  border-radius: 50%;
+	  transition: background-color 0.3s linear;
+	}
+  }
+  .tour-list-category.active .tour-list-category-dot {
+	background-color: $mtavari	;
+  }
+}

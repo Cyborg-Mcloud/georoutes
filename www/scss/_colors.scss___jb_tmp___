@@ -1,0 +1,9 @@
+$mtavari: #41ccb9;
+$mtavariMkrtali: rgba(64, 203, 184, 0.8);
+$mtavariMuqi: #1e6d62;
+//$mtavariMkrtali: rgba(65, 204, 183, 0.7);
+$tsiteli: #f37022;
+$fontLight: #FFFFFF;
+$fontLightHover: #dcdcdc;
+$mkrtaliNacrisferi: #c6c6c6;
+$fontMkrtali: #9b9b9b;

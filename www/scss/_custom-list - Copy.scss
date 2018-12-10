@@ -1,0 +1,35 @@
+.custom-list {
+  position: relative;
+  width: 90%;
+  left: 5%;
+  padding-top: 20px;
+
+  .custom-list-item {
+	box-sizing: border-box;
+	padding: 10px;
+	background-color: $customListBackground;
+	margin-bottom: 10px;
+	border-radius: 8px;
+	color: $fontMkrtali;
+
+	.custom-list-icon {
+	  text-align: center;
+
+	  i {
+		margin: 0px auto;
+	  }
+	}
+	.custom-list-title {
+		font-size: 0.9em;
+	}
+	.custom-list-bottom {
+	  padding: 8px 0px 0px 0px;
+	  font-size: 0.8em;
+
+	  .custom-list-share {
+		text-align: right;
+		color: $mtavari;
+	  }
+	}
+  }
+}

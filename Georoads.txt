@@ -1,0 +1,36 @@
+Georoad:
+
+phonegap platform add android
+phonegap plugin add cordova-plugin-backbutton
+phonegap platform rm browser
+phonegap platform add browser
+
+imgcache.js gamo:
+cordova plugin add cordova-plugin-file --save
+cordova plugin add cordova-plugin-device --save
+cordova plugin add cordova-plugin-file-transfer --save
+
+/// config.xml
+<feature name="Device">
+	<param name="android-package" value="org.apache.cordova.device.Device" />
+</feature>
+<feature name="File">
+	<param name="android-package" value="org.apache.cordova.file.FileUtils" />
+</feature>
+<feature name="FileTransfer">
+	<param name="android-package" value="org.apache.cordova.filetransfer.FileTransfer" />
+</feature>
+	
+
+cordova plugin add cordova-plugin-whitelist
+cordova prepare
+
+
+phonegap local plugin add cordova-plugin-x-toast
+phonegap plugin add cordova-sqlite-storage
+#phonegap plugin add cordova-plugin-share
+phonegap plugin add cordova-plugin-x-socialsharing
+phonegap plugin add cordova-plugin-geolocation
+phonegap plugin add cordova-plugin-request-location-accuracy
+#phonegap plugin add cordova-plugin-diagnostic
+phonegap plugin add cordova.plugins.diagnostic

@@ -1,0 +1,13 @@
+.region {
+  @extend %item;
+
+  .detail-main-photo {
+	@extend %item-photo
+  }
+  .overlay {
+
+  }
+  .text-div {
+	@extend %item-text
+  }
+}

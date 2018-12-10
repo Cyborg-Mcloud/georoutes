@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title></title>
+		<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />-->
+		<link href="css/icomoon.css" rel="stylesheet" />
+		<link href="css/jarallax.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/leaflet.css" crossorigin=""/>
+		<link href="css/style.css" rel="stylesheet" />
+		<style>
+			.jarallax{
+				max-width: 100%;
+				height: 200px;
+			}
+		</style>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+		<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+		<!--<script src="http://192.168.1.100:8080/target/target-script-min.js#anonymous"></script>-->
+		<script src="js/jquery-3.3.1.min.js"></script>
+		<script src="js/jarallax.min.js"></script>
+		<!--<script src="js/imgcache.js"></script>-->
+
+		<!--<script src="js/app/map/map.js"></script>-->
+		<script src="js/app/map/leaflet.js"></script>
+		<script src="js/app/map/gps.js"></script>
+		<script src="js/app/map/location.js"></script>
+		<script src="js/app/map/leaf_map.js"></script>
+		<script src="js/app/map-init.js"></script>
+
+
+		<script src="js/app/languages.js"></script>
+		<script src="js/app/load-data.js"></script>
+		<script src="js/app/users.js"></script>
+		<script src="js/app/sync.js"></script>
+		<script src="js/app/review.js"></script>
+		<script src="js/app/favourites.js"></script>
+
+		<!--გვერდები-->
+
+		<script src="js/pages/pages.js"></script>
+		<script src="js/pages/regions.js"></script>
+		<script src="js/pages/tour-list.js"></script>
+		<script src="js/pages/tour-items.js"></script>
+		<script src="js/pages/object-item.js"></script>
+		<script src="js/pages/object-list.js"></script>
+		<script src="js/pages/search.js"></script>
+		<script src="js/pages/history.js"></script>
+		<script src="js/pages/favourites.js"></script>
+		<script src="js/pages/register.js"></script>
+		<script src="js/pages/login.js"></script>
+
+		<!--გვერდების დასასრული-->
+
+
+		<script>
+			document.addEventListener("deviceready", onDeviceReady, false);
+
+			function onDeviceReady() {
+
+				// deleteDatebase();
+				// createDB();
+				// synchronize();
+
+				bodyLoad();
+
+				document.addEventListener("backbutton", callLastOperation, false);
+
+			}
+			// $(document).ready(function() {
+			// 	var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
+			// 	// if ( app ) {
+			// 	// 	// PhoneGap application
+			// 	// } else {
+			// 		bodyLoad();
+			// 	// }
+			// });
+		</script>
+		<!--<script>-->
+            <!--var activeMenu = "left";-->
+
+            <!--function fadeIn(side) {-->
+                <!--activeMenu = side;-->
+
+                <!--$(".slide-menu").show();-->
+                <!--$(".black-bg").fadeIn("400");-->
+                <!--console.log('a');-->
+                <!--if (side == "left") {-->
+                    <!--$(".menu-left").animate({left: "0px"});-->
+                <!--} else if (side == "right") {-->
+                    <!--$(".menu-right").animate({right: "0px"});-->
+                <!--}-->
+            <!--}-->
+            <!--function fadeOut(side) {-->
+                <!--if (!side) side = activeMenu;-->
+
+                <!--console.log(activeMenu);-->
+                <!--$(".black-bg").fadeOut("400");-->
+                <!--if (side == "left") {-->
+                    <!--$(".menu-left").animate({left: "-270px"});-->
+                <!--} else if (side == "right") {-->
+                    <!--$(".menu-right").animate({right: "-270px"});-->
+                <!--}-->
+
+                <!--setTimeout(function () {-->
+                    <!--$(".slide-menu").hide();-->
+                <!--}, 400);-->
+            <!--}-->
+		<!--</script>-->
+	</head>
+
+	<!--<body onload="bodyLoad()">-->
+	<body>
+		<!-- ჰედერის დასაწყისი -->
+		<!--<div class="header-navigation">-->
+			<!--<div class="search-button">-->
+				<!--<i class="icon icon-search"></i>-->
+			<!--</div>-->
+			<!--<div class="menu-button">-->
+				<!--<i class="icon icon-menu"></i>-->
+			<!--</div>-->
+
+		<!--</div>-->
+		<div class="header-title" id="header-title">
+			სათაური
+		</div>
+		<!-- ჰედერის დასასრული -->
+
+		<!-- მთავარი მასალა -->
+		<!--<button onclick="window.plugins.toast.showShortTop('Hello there!', function(a){console.log('toast success: ' + a)}, function(b){console.log('toast error: ' + b)})">Toast showShortTop</button>-->
+		<div class="content" id="content">
+			<!--<div class="detail-main-photo" style="background-image: url('images/Restaurant-1-1.jpg')"></div>-->
+			<!--<div class="region"><div class="detail-main-photo" style="background-image: url('http://georoads.design.ge/images/regions/Rr8oqQxlAsTELWFTQ3QGuN9runCvMs.jpg')"></div></div>-->
+		</div>
+		<div id="nogps" style="display: none"></div>
+		<!--<div class="content">-->
+			<!--<button onclick="window.plugins.socialsharing.share('Message, subject, image and link', 'The subject', 'www/images/test.jpg', 'http://example.com')">message, subject, image and link</button>-->
+		<!--</div>-->
+		<!--<iframe src="pages/home.html" style="width: 100%; height: 100%; padding-bottom: 40px; border: 0px;"></iframe>-->
+		<!-- მთავარი მასალის დასასრული -->
+
+		<!-- ფუტერის დასაწყისი -->
+		<div class="footer-navigation">
+			<div class="inner text-center">
+				<a class="col-3" href="#" onclick="showHome()">
+					<i class="icon icon-home"></i>
+				</a>
+				<a class="col-3" href="#" onclick="renderFavourites()">
+					<i class="icon icon-heart"></i>
+				</a>
+				<a class="col-3" href="#">
+					<i class="icon icon-road" onclick=""></i>
+				</a>
+				<a class="col-3" href="#" onclick="renderFullScreenMap();">
+				<!--<a class="col-3" href="#" onclick="clearContent(); createMap('content', true)">-->
+					<i class="icon icon-map"></i>
+					<!--<i class="icons"></i>-->
+				</a>
+			</div>
+			<div class="corner-left"><img src="images/kutkhe_marckhena.png" /></div>
+			<div class="corner-right"><img src="images/kutkhe_marjvena.png" /></div>
+		</div>
+		<!-- ფუტერის დასასრული -->
+
+		<div class="slide-menu">
+			<div class="black-bg" id="black-bg"></div>
+			<div class="menu-right" id="menu-right">
+				<div class="menu-header">
+					<div class="menu-icon menu-close-tigger">
+						<i class="icon icon-menu"></i>
+					</div>
+				</div>
+				<div class="menu-content" id="menu-right-content">
+					<!--<div class="menu-profile row">-->
+						<!--<div class="col-4 menu-user-icon" style="text-align: center;"><i class="icon icon-user" style="font-size: 2.5em; border-radius:50%; border: 3px solid white; padding: 8px; display: inline-block"></i></div>-->
+						<!--<div class="col-8 menu-user-info">-->
+							<!--<div class="menu-user-username">username</div>-->
+							<!--&lt;!&ndash;<div class="menu-user-location">ადგილმდეობა</div>&ndash;&gt;-->
+						<!--</div>-->
+					<!--</div>-->
+
+					<!--<a class="menu-button-style" href="#"><i class="icon icon-eye"></i> ბოლოს ნანახი</a>-->
+					<!--<a class="menu-button-style" href="#"><i class="icon icon-heart"></i> ფავორიტები</a>-->
+					<!--<a class="menu-button-style" href="#"><i class="icon icon-road"></i> ჩემი მარშრუტები</a>-->
+					<!--<a class="menu-button-style" href="#"><i class="icon icon-star-full"></i> ჩემი შეფასებული</a>-->
+					<!--<a class="menu-button-style" href="#"><i class="icon icon-tongue"></i> პარამეტრები</a>-->
+
+					<!--<a class="button-primary mt-4" href="#reg">შესვლა</a>-->
+					<!--<a class="button-secondary mt-1" href="#reg" onClick="renderRegistration()">რეგისტრაცია</a>-->
+				</div>
+			</div>
+			<div class="menu-left" id="menu-left">
+				<div class="menu-header">
+					<!-- გვხვდება მხოლოდ მარცხენა მენიუში -->
+					<div class="menu-search">
+						<form id="menu-search-form">
+							<input type="text" placeholder="ძიება" class="menu-input" id="left-menu-search"/>
+							<input type="submit" hidden />
+						</form>
+					</div>
+					<!-- //// -->
+					<div class="menu-icon search-close-tigger">
+						<i class="icon icon-search"></i>
+					</div>
+				</div>
+				<div class="menu-content">
+					<a href="#" class="menu-left-button" onclick="fadeSubMenu('categories')"><i class="icon icon-list"></i> <span id="left-menu-categories">კატეგორიები</span></a>
+					<a href="#" class="menu-left-button" onclick="fadeSubMenu('newest')"><i class="icon icon-location"></i> <span id="left-menu-nearest">უახლოესი</span></a>
+				</div>
+				<div class="menu-left-sub menu-left-sub-categories" id="sub-menu-categories">
+					<!--<a href="#" class="sub-category-item">
+						<div class="row">
+							<div class="col-3 sub-menu-icon"><i class="icon icon-woman"></i></div>
+							<div class="col-9"></div>
+						</div>
+					</a>
+					<a href="#" class="sub-category-item">
+						<div class="row">
+							<div class="col-3 sub-menu-icon"><i class="icon icon-airplane"></i></div>
+							<div class="col-9">აეროპორტი</div>
+						</div>
+					</a>
+					<a href="#" class="sub-category-item">
+						<div class="row">
+							<div class="col-3 sub-menu-icon"><i class="icon icon-book"></i></div>
+							<div class="col-9">ბიბლიოთეკა</div>
+						</div>
+					</a>
+					<a href="#" class="sub-category-item">
+						<div class="row">
+							<div class="col-3 sub-menu-icon"><i class="icon icon-gift"></i></div>
+							<div class="col-9">სუვენირები</div>
+						</div>
+					</a>-->
+				</div>
+				<div class="menu-left-sub menu-left-sub-newest">
+					<a href="#" class="sub-category-item">
+						<div class="row">
+							<div class="col-2 sub-menu-icon"><i class="icon icon-road"></i></div>
+							<div class="col-10">
+								<div class="sub-menu-title">
+									ძველი თბილისი, კუს ტბა, ნარიყალა (180მ)
+									<br>✯✯✯✩✰
+								</div>
+							</div>
+						</div>
+					</a>
+					<a href="#" class="sub-category-item">
+						<div class="row">
+							<div class="col-2 sub-menu-icon"><i class="icon icon-road"></i></div>
+							<div class="col-10">
+								<div class="sub-menu-title">
+									ძველი თბილისი, კუს ტბა, ნარიყალა (180მ)
+									<br>✯✯✯✩✰
+								</div>
+							</div>
+						</div>
+					</a>
+					<a href="#" class="sub-category-item">
+						<div class="row">
+							<div class="col-2 sub-menu-icon"><i class="icon icon-road"></i></div>
+							<div class="col-10">
+								<div class="sub-menu-title">
+									ძველი თბილისი, კუს ტბა, ნარიყალა (180მ)
+									<br>✯✯✯✩✰
+								</div>
+							</div>
+						</div>
+					</a>
+					<a href="#" class="sub-category-item">
+						<div class="row">
+							<div class="col-2 sub-menu-icon"><i class="icon icon-road"></i></div>
+							<div class="col-10">
+								<div class="sub-menu-title">
+									ძველი თბილისი, კუს ტბა, ნარიყალა (180მ)
+									<br>✯✯✯✩✰
+								</div>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<script src="js/jquery.touchSwipe.min.js"></script>
+		<script src="js/menu_v1.5.js"></script>
+		<script src="js/app/sub-menu.js"></script>
+		<script src="js/app/left-menu.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+	</body>
+</html>

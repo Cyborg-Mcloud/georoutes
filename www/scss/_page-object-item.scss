@@ -1,0 +1,50 @@
+.object-item {
+  @extend %detail-tour-object-outer;
+
+  .object-item-image-div {
+	@extend %detail-tour-object-image-div;
+
+	.object-item-image {
+	  @extend %detail-tour-object-image;
+	  &:after {
+		@extend %item-photo-after;
+	  }
+	}
+	.object-item-bottom {
+	  @extend %detail-tour-object-bottom-div;
+
+	  .object-item-title {
+		@extend %detail-tour-object-title;
+	  }
+	  .object-item-rating {
+		@extend %detail-tour-object-rating;
+		.object-item-star-quantity {
+		  @extend %detail-tour-star-quantity;
+		}
+	  }
+	}
+  }
+
+  .object-item-padding {
+	@extend %detail-tour-object-padding;
+  }
+  .object-item-description {
+	@extend %detail-tour-object-description;
+  }
+  .object-item-first-row {
+	@extend %detail-tour-object-first-row;
+  }
+  .object-item-hr {
+	@extend %detail-tour-object-hr
+  }
+  .object-item-infos {
+	padding: 8px 0px;
+	.object-item-info {
+	  display: block;
+	  text-decoration: none;
+	  margin-top: 4px;
+	  font-size: 1em;
+	  color: $mtavari;
+	}
+  }
+}
