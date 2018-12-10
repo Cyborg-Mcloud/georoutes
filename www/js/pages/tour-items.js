@@ -24,7 +24,7 @@ function createTourItemLayout(data) {
 			'<div class="inner-padding" id="rating-div"></div>';
 	renderReviews('tour', tour.id, 'rating-div');
 	// createMap('map-map', false);
-coonsole.log(tour);
+console.log(tour);
 
 	routeTemp = JSON.parse(tour.tour_driving_map_data);
 	console.log('gzaaaaaaaaaaaaaaaaaaaaa');
