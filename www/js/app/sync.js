@@ -3,7 +3,7 @@ var db;
 var userDBName = 'user.db';
 var userDB;
 
-
+var dbconnected=0;
 function deleteDatabase() {
 	window.sqlitePlugin.deleteDatabase({name: mainDBName, location: 'default'}, function () {console.log('ბაზა წაიშალა')}, function(error) {console.log('შეცდომა' + error)});
 }
@@ -28,8 +28,10 @@ function createDB() {
 function connectDB() {
 	db = window.sqlitePlugin.openDatabase({ name: mainDBName, location: 'default' }, function (db) {
 	console.log("mivertdi "+mainDBName);
+	dbconnected=1;
 	}, function (error) {
 		console.log('Open database ERROR: ' + JSON.stringify(error));
+		dbconnected=0;
 	});
 }
 

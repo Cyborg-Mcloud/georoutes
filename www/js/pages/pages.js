@@ -24,13 +24,18 @@ function bodyLoad() {
 		localStorage.setItem("launched", '1');
 		}
 	else {
-		showHome();
-		updateLeftCategories();
-		updateNearest();
+		setTimeout("timedelay()",1000);
 	}
 	updateLeftMenuStrings();
 	renderRightMenuList();
 }
+
+function timedelay()
+	{
+	showHome();
+	updateLeftCategories();
+	updateNearest();
+	}
 
 function clearContent(page) {
 	removeExistingMap(mymap);
