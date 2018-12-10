@@ -294,20 +294,24 @@ function renderTourItem(id) {
 		objects: new Array()
 	};
 	logView(id, 1);
-	db.executeSql('SELECT * FROM tours WHERE id = ?', [id], function (resultSet) {
+	db.transaction(function (txn) {
+					txn.executeSql('SELECT * FROM tours WHERE id = ?', [id], function (tx,resultSet) {
 		console.log('turi daiwyooo');
 		for(var x = 0; x < resultSet.rows.length; x++) {
 			data.tour = (resultSet.rows.item(x));
 		}
 		console.log('turi morchaaa');
 		console.log(data);
+					});
 	});
-	db.executeSql('SELECT * FROM objects WHERE id IN (SELECT object_id FROM tour_objects WHERE tour_id = ?)', [id], function (resultSet) {
+	db.transaction(function (txn) {
+					txn.executeSql('SELECT * FROM objects WHERE id IN (SELECT object_id FROM tour_objects WHERE tour_id = ?)', [id], function (tx,resultSet) {
 		for(var x = 0; x < resultSet.rows.length; x++) {
 			data.objects.push(resultSet.rows.item(x));
 		}
 		console.log('obieqti morchaaa');
 		createTourItemLayout(data);
 		console.log(data);
+		});
 	});
 }

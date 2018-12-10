@@ -27,9 +27,11 @@ function setSearchCategory(id) {
 	}
 }
 function setCategoryNameToSearch(id) {
-	db.executeSql('SELECT `name_ge`, `name_en` FROM object_categories WHERE id = ?', [id], function (resultSet) {
+	db.transaction(function (txn) {
+					txn.executeSql('SELECT `name_ge`, `name_en` FROM object_categories WHERE id = ?', [id], function (tx,resultSet) {
 		var category = resultSet.rows.item(0);
 		updateSearchPlaceholder( category['name' + lang] );
+					});
 	});
 }
 function updateSearchPlaceholder(text) {
@@ -77,13 +79,15 @@ function renderSearch(searchTerm) {
 	console.log(query);
 	console.log(parameters);
 
-	db.executeSql(query, parameters, function (resultSet) {
+	db.transaction(function (txn) {
+					txn.executeSql(query, parameters, function (tx,resultSet) {
 		var data = new Array();
 		for(var x = 0; x < resultSet.rows.length; x++) {
 			data.push(resultSet.rows.item(x));
 			// console.log(resultSet.rows.item(x));
 		}
 		handleSearchResults(data);
+					});
 	});
 }
 

@@ -85,7 +85,8 @@ function renderTourList(id, name) {
 	setRegion(id, name);
 
 	console.log('aq  kivar');
-	db.executeSql('SELECT * FROM tours WHERE id IN (SELECT tour_id FROM tour_regions WHERE region_id = ?)', [id], function (resultSet) {
+	db.transaction(function (txn) {
+					txn.executeSql('SELECT * FROM tours WHERE id IN (SELECT tour_id FROM tour_regions WHERE region_id = ?)', [id], function (tx,resultSet) {
 		var data = new Array();
 		for(var x = 0; x < resultSet.rows.length; x++) {
 			data.push(resultSet.rows.item(x));
@@ -93,19 +94,24 @@ function renderTourList(id, name) {
 		console.log('aq  kivaasdfasdr');
 		handleTours(data, 'tour-new');
 	}, function(error) {console.log('pizzzdec' + error);});
-	db.executeSql('SELECT * FROM tours WHERE id IN (SELECT tour_id FROM tour_regions WHERE region_id = ?) AND is_recommended = 1', [id], function (resultSet) {
+	});
+	db.transaction(function (txn) {
+					txn.executeSql('SELECT * FROM tours WHERE id IN (SELECT tour_id FROM tour_regions WHERE region_id = ?) AND is_recommended = 1', [id], function (tx,resultSet) {
 		var data = new Array();
 		for(var x = 0; x < resultSet.rows.length; x++) {
 			data.push(resultSet.rows.item(x));
 		}
 		handleTours(data, 'tour-recommended');
+		});
 	});
-	db.executeSql('SELECT * FROM tours WHERE id IN (SELECT tour_id FROM tour_regions WHERE region_id = ?) AND is_popular = 1', [id], function (resultSet) {
+	db.transaction(function (txn) {
+					txn.executeSql('SELECT * FROM tours WHERE id IN (SELECT tour_id FROM tour_regions WHERE region_id = ?) AND is_popular = 1', [id], function (tx,resultSet) {
 		var data = new Array();
 		for(var x = 0; x < resultSet.rows.length; x++) {
 			data.push(resultSet.rows.item(x));
 		}
 		handleTours(data, 'tour-popular');
+					});
 	});
 
 	// var url = '';

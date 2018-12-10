@@ -4,7 +4,8 @@ function renderObjectList(id) {
 	setTitle( string('objects_title') );
 	setSearchCategory(id);
 
-	db.executeSql('SELECT * FROM objects WHERE category = ?', [id], function (resultSet) {
+	db.transaction(function (txn) {
+					txn.executeSql('SELECT * FROM objects WHERE category = ?', [id], function (tx,resultSet) {
 		var object;
 		var div = createCustomList(contentDiv);
 		for(var x = 0; x < resultSet.rows.length; x++) {
@@ -15,5 +16,6 @@ function renderObjectList(id) {
 		$('.jarallax').jarallax({
 			speed: 0.85
 		});
+					});
 	});
 }

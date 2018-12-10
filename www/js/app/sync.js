@@ -247,11 +247,13 @@ function synchronize() {
 
 function getData(table) {
 	// var data = new Array();
-	db.executeSql('SELECT * FROM ' + table, [], function (resultSet) {
+	db.transaction(function (txn) {
+					txn.executeSql('SELECT * FROM ' + table, [], function (tx,resultSet) {
 		for(var x = 0; x < resultSet.rows.length; x++) {
 			// data.push(resultSet.rows.item(x));
 			console.log(resultSet.rows.item(x));
 		}
+					});
 	});
 	// return data;
 }

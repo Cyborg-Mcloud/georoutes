@@ -87,7 +87,9 @@ function renderObjectItem(id) {
 	//
 	// 	}
 	// });
-	db.executeSql('SELECT * FROM objects WHERE id = ?', [id], function (resultSet) {
+	db.transaction(function (txn) {
+					txn.executeSql('SELECT * FROM objects WHERE id = ?', [id], function (tx,resultSet) {
 		createObjectItemLayout(resultSet.rows.item(0));
+					});
 	});
 }
