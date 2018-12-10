@@ -13,13 +13,16 @@ function bodyLoad() {
 	console.log("connecting");
 	connectDB();
 	connectUserDB();
-	console.log("connected");
-	if (localStorage.getItem("launched") != '1') {
+	console.log("connected "+localStorage.getItem("launched"));
+	if (localStorage.getItem("launched") != '1') 
+		{
+		console.log("vqmni db-ebs");
 		createDB();
 		createUserDB();
+		console.log("createbi");
 		synchronize();
 		localStorage.setItem("launched", '1');
-	}
+		}
 	else {
 		showHome();
 		updateLeftCategories();

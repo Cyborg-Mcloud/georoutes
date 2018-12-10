@@ -1,5 +1,5 @@
 var mainDBName = 'data.db';
-var db = null;
+var db;
 var userDBName = 'user.db';
 var userDB;
 
@@ -27,7 +27,7 @@ function createDB() {
 }
 function connectDB() {
 	db = window.sqlitePlugin.openDatabase({ name: mainDBName, location: 'default' }, function (db) {
-
+	console.log("mivertdi "+mainDBName);
 	}, function (error) {
 		console.log('Open database ERROR: ' + JSON.stringify(error));
 	});
