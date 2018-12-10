@@ -56,8 +56,8 @@
     </feature>
 
 	<plugin name="cordova-plugin-whitelist" source="npm"/>
-<!--	<plugin name="cordova-plugin-sqlite-2" source="npm"/>
-<plugin name="cordova-sqlite-ext" source="npm"/>-->
+<plugin name="cordova-plugin-sqlite-2" source="npm"/>
+<!--<plugin name="cordova-sqlite-ext" source="npm"/>
 <plugin name="cordova-plugin-dialogs" source="npm"/>
 <plugin name="cordova-sqlite-storage" source="npm"/>
 <!--<plugin name="uk.co.workingedge.cordova.plugin.sqliteporter" spec="*" />-->
