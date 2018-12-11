@@ -53,13 +53,17 @@ function createTourItemLayout(data) {
 				new_route(routeInt, routeTemp[routeInt][i].points)
 				}
 			}
+		
+		console.log('objecctttsss');
+		console.log(objects);
+		for (i = 0; i < objects.length; i++) 
+			{
+			console.log('aeee obbbbobb');
+			add_marker(objects[i].latitude, objects[i].longitude, objects[i]['name' + lang], objects[i].id, "images/marker.png");
+			}
+		
 		}	
-	console.log('objecctttsss');
-	console.log(objects);
-	for (i = 0; i < objects.length; i++) {
-		console.log('aeee obbbbobb');
-		add_marker(objects[i].latitude, objects[i].longitude, objects[i]['name' + lang], objects[i].id, "images/marker.png");
-	}
+	
 	//center_on_location(parseFloat(routeTemp[0][0].points[0][0]), parseFloat(routeTemp[0][0].points[0][1]), 14);
 	//refresh_map();
 	checkFavourite(tour.id, 1, function() {
