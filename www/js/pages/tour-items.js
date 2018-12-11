@@ -30,25 +30,30 @@ function createTourItemLayout(data) {
 	routeTemp = JSON.parse(tour.tour_driving_map_data);
 	console.log('gzaaaaaaaaaaaaaaaaaaaaa');
 	console.log(routeTemp);
+
 	if (routeTemp!="null" && routeTemp!=null && routeTemp!="")
 		{
 		init_map(parseFloat(routeTemp[0][0].points[0][0]), parseFloat(routeTemp[0][0].points[0][1]), 14, 'geo-map', false);
-		}
+		
 		// init_map(parseFloat(routeTemp[0][0].points[0][0]), parseFloat(routeTemp[0][0].points[0][1]), 13);
 		// init_map(parseFloat(routeTemp[0][0].points[0][0]), parseFloat(routeTemp[0][0].points[0][1]), 14, 'geo-map', false);
 		
 		
-	for (var routeInt = 0; routeInt < routeTemp.length; routeInt++) {
-		for (var i = 0; i < (routeTemp[routeInt].length); i++) {
-			// console.log(route[i]);
-			// console.log('a123');
-			for (var j = 0; j < routeTemp[routeInt][i].points.length; j++) {
-				// add_route_point(routeInt, parseFloat(routeTemp[routeInt][i].points[j][0]), parseFloat(routeTemp[routeInt][i].points[j][1]));
+		for (var routeInt = 0; routeInt < routeTemp.length; routeInt++) 
+			{
+			for (var i = 0; i < (routeTemp[routeInt].length); i++) 
+				{
+				// console.log(route[i]);
+				// console.log('a123');
+				for (var j = 0; j < routeTemp[routeInt][i].points.length; j++) 
+					{
+					// add_route_point(routeInt, parseFloat(routeTemp[routeInt][i].points[j][0]), parseFloat(routeTemp[routeInt][i].points[j][1]));
 
+					}
+				new_route(routeInt, routeTemp[routeInt][i].points)
+				}
 			}
-			new_route(routeInt, routeTemp[routeInt][i].points)
-		}
-	}
+		}	
 	console.log('objecctttsss');
 	console.log(objects);
 	for (i = 0; i < objects.length; i++) {
