@@ -30,7 +30,7 @@ function createTourItemLayout(data) {
 	routeTemp = JSON.parse(tour.tour_driving_map_data);
 	console.log('gzaaaaaaaaaaaaaaaaaaaaa');
 	console.log(routeTemp);
-	if (routeTemp!="null")
+	if (routeTemp!="null" && routeTemp!=null && routeTemp!="")
 		{
 		init_map(parseFloat(routeTemp[0][0].points[0][0]), parseFloat(routeTemp[0][0].points[0][1]), 14, 'geo-map', false);
 		}
