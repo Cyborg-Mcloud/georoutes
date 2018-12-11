@@ -113,11 +113,11 @@ function renderTourList(id, name) {
 		for(var x = 0; x < resultSet.rows.length; x++) {
 			data.push(resultSet.rows.item(x));
 		}
-			console.log('aq  tour-pop');
+		console.log('aq  tour-pop');
 		console.log(data);
 
 		handleTours(data, 'tour-popular');
-					});
+		});
 	});
 
 	// var url = '';
