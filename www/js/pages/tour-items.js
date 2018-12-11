@@ -25,16 +25,19 @@ function createTourItemLayout(data) {
 	renderReviews('tour', tour.id, 'rating-div');
 	// createMap('map-map', false);
 	console.log(tour);
-	if (tour.tour_driving_map_data!=null)
-		{
+	
 		
-		routeTemp = JSON.parse(tour.tour_driving_map_data);
-		console.log('gzaaaaaaaaaaaaaaaaaaaaa');
-		console.log(routeTemp);
+	routeTemp = JSON.parse(tour.tour_driving_map_data);
+	console.log('gzaaaaaaaaaaaaaaaaaaaaa');
+	console.log(routeTemp);
+	if (routeTemp!=null)
+	{
+		init_map(parseFloat(routeTemp[0][0].points[0][0]), parseFloat(routeTemp[0][0].points[0][1]), 14, 'geo-map', false);
+	}
 		// init_map(parseFloat(routeTemp[0][0].points[0][0]), parseFloat(routeTemp[0][0].points[0][1]), 13);
 		// init_map(parseFloat(routeTemp[0][0].points[0][0]), parseFloat(routeTemp[0][0].points[0][1]), 14, 'geo-map', false);
-		init_map(parseFloat(routeTemp[0][0].points[0][0]), parseFloat(routeTemp[0][0].points[0][1]), 14, 'geo-map', false);
-		}
+		
+		
 	for (var routeInt = 0; routeInt < routeTemp.length; routeInt++) {
 		for (var i = 0; i < (routeTemp[routeInt].length); i++) {
 			// console.log(route[i]);
